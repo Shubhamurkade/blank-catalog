@@ -1,0 +1,41 @@
+---
+profile: light
+ceip_policy_disclosed: true 
+
+buildservice:
+    kp_default_repository: "shubhamurkade/build-service"
+    kp_default_repository_username: "shubhamurkade"
+    kp_default_repository_password: "p45albola700"
+    tanzunet_username: "surkade@vmware.com"
+    tanzunet_password: "!%Tindeda67940"
+
+supply_chain: basic
+
+ootb_supply_chain_basic:
+    registry:
+        server: "index.docker.io"
+        repository: "shubhamurkade"
+    gitops:
+        ssh_secret: ""
+tap_gui:
+    service_type: ClusterIP
+    ingressEnabled: "true"
+    ingressDomain: "vmware.com"
+    app_config:
+        app:
+            baseUrl: http://tap-gui.vmware.com
+        catalog:
+            locations:
+                  target: https://github.com/Shubhamurkade/blank-catalog/blob/main/catalog-info.yaml
+        backend:
+            baseUrl: http://tap-gui.vmware.com
+            cors:
+                origin: http://tap-gui.vmware.com
+cnrs:
+    domain_name: vmware.com
+
+contour:
+    envoy:
+        service:
+            type: NodePort
+

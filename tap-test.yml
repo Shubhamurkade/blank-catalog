@@ -1,0 +1,18 @@
+tap_gui:
+  service_type: LoadBalancer
+  # Existing tap-values.yml above  
+  app_config:
+    app:
+      baseUrl: http://EXTERNAL-IP:7000
+    integrations:
+      github: # Other integrations available see NOTE below
+        - host: github.com
+          token: GITHUB-TOKEN
+    catalog:
+      locations:
+        - type: url
+          target: https://GIT-CATALOG-URL/catalog-info.yaml
+    backend:
+        baseUrl: http://EXTERNAL-IP:7000
+        cors:
+          origin: http://EXTERNAL-IP:7000
